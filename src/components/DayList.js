@@ -8,6 +8,9 @@ import DayListItem from 'components/DayListItem';
 
 export default function DayList(props) {
 
+
+
+
     const dayItems = props.days.map((day, indx) =>  {
         return (
             <DayListItem
