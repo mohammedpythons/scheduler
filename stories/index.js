@@ -14,6 +14,7 @@ import Confirm from 'components/Appointment/confirm'
 import Status from 'components/Appointment/status'
 import Error from 'components/Appointment/error'
 import Form from 'components/Appointment/form'
+import  { Fragment } from 'react'
 
 import "index.scss";
 
@@ -161,3 +162,19 @@ storiesOf("InterviewerListItem", module)
     .add('Form', () => <Form interviewers={interviewers} />)
     .add("Form-Edit",() => <Form name="Mohamed Ali"  interviewers={interviewers} interviewer={3} onSave={action('onSave')} onCancel={action('onCancel')} />)
     .add('Form-create', () => <Form interviewers={interviewers} onSave={action('onSave')} onCancel={action('onCancel')} />)
+    .add("Appointment Empty", () => (
+      <Fragment>
+        <Appointment id={1} time="12pm" />
+        <Appointment id="last" time="1pm" />
+      </Fragment>
+    ))
+    .add("Appointment Booked", () => (
+      <Fragment>
+        <Appointment
+          id={1}
+          time="12pm"
+          interview={{ student: "Lydia Miller-Jones", interviewer }}
+        />
+        <Appointment id="last" time="1pm" />
+      </Fragment>
+    ))
