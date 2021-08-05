@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 import { useState, useEffect }  from 'react';
 import axios from 'axios'
 
@@ -68,12 +68,21 @@ const appointments = [
     }
   }
 ];
-export default function Application(props) {
-  const [day, setDay] = useState('Monday');
 
-  const [days, setDays] = useState([])
+
+export default function Application(props) {
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+  });
+  const setDay = day => setState({ ...state, day });
+  const setDays = (days) => {
+    setState({...state, days})
+  }
+
+
   useEffect(() => {
-    axios.get('http://localhost:8001/api/days')
+    axios.get('api/days')
     .then(res => setDays(res.data))
   }, [])
 
@@ -83,7 +92,7 @@ export default function Application(props) {
       <section className="sidebar">
         {<> <img className="sidebar--centered" src="images/logo.png" alt="Interview Scheduler" />
          <hr className="sidebar__separator sidebar--centered" />
-         <nav className="sidebar__menu"> <DayList days={days} day={day} setDay={setDay} />/></nav>
+         <nav className="sidebar__menu"> <DayList days={state.days} day={state.day} setDay={setDay} /></nav>
          <img
           className="sidebar__lhl sidebar--centered"
           src="images/lhl.png"
