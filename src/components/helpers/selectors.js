@@ -33,19 +33,9 @@ function getInterview(state, interview) {
 }
 
 function getInterviewersForDay(state, day) {
-    const interviewersForDay = []
-    const appointments = getAppointmentsForDay(state, day)// this returns Array of aobject ==> {id: 5,time: '4pm',interview: { student: 'Chad Takahashi', interviewer: 2 }}
-
-    for (const appointment of appointments) {
-
-        if (appointment.interview !== null) {
-            const interviewerId = appointment.interview.interviewer;
-            interviewersForDay.push(state.interviewers[interviewerId])
-        }
-    }
-
-    return interviewersForDay;// this return the interviwer{   id: 2,   name: 'Tori Malcolm',   avatar: 'https://i.imgur.com/Nmx0Qxo.png' }
-
+    const found = state.days.find(d => day === d.name)
+    if (state.days.length === 0 || found === undefined) return [];
+    return found.interviewers.map(id => state.interviewers[id])
 }
 
 

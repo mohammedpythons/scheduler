@@ -79,9 +79,27 @@ export default function Application(props) {
     interviewers: {}
   });
   const setDay = day => setState({ ...state, day });
-  // const setDays = (days) => {
-  //   setState({...state, days})
-  // }
+
+  function bookInterview(id, interview) {
+
+    // console.log("ooooooooooooooo",id, interview);
+
+    return axios.put(`/api/appointments/${id}`, {interview: {...interview}}) // second params is the body you want to put // RETURN IT TO BE THENABLE in the appointment CM
+    .then(res => {
+      const appointment = {
+        ...state.appointments[id],
+        interview: { ...interview }
+      };
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment
+      };
+      setState({
+        ...state,
+        appointments
+      });
+    })
+  }
 
 
   useEffect(() => {
@@ -108,6 +126,7 @@ export default function Application(props) {
      time={appointment.time}
      interview={interview}
      interviewers={dailyInterviewers}
+     bookInterview={bookInterview}
      />)
   })
 
