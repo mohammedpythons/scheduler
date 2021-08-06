@@ -9,6 +9,7 @@ import useVisualMode from 'hooks/useVisualMode'
 
 export default function Appointment(props) {
 
+
     const EMPTY = "EMPTY";
     const SHOW = "SHOW";
     const CREATE = 'CREATE'
@@ -22,7 +23,7 @@ export default function Appointment(props) {
             {props.time && <Header time={props.time} />}
             {mode === SHOW && <Show interviewer={props.interview.interviewer} student={props.interview.student} /> }
             {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
-            {mode === CREATE && <Form interviewers={interviewers}  onCancel={() => back()}/>}
+            {mode === CREATE && <Form interviewers={props.interviewers}  onCancel={() => back()}/>}
         </article>
     )
 }
