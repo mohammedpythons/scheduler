@@ -13,6 +13,8 @@ import {getAppointmentsForDay, getInterview ,getInterviewersForDay} from './help
 
 
 export default function Application(props) {
+
+
   const { state, setDay, bookInterview, cancelInterview } = useApplicationData()
 
   const dailyAppointments = getAppointmentsForDay(state, state.day)

@@ -56,7 +56,7 @@ export default function Appointment(props) {
 
 
 
-console.log("this is mode",mode)
+
 
 
 

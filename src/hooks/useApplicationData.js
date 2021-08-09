@@ -10,6 +10,7 @@ export default function useApplicationData() {
     interviewers: {}
       });
 
+
       const setDay = day => setState({ ...state, day });
 
       const updateSpots = (state, day) => {
