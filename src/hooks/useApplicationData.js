@@ -52,7 +52,8 @@ export default function useApplicationData() {
           };
           const updatedState = {
             ...state,
-            appointments // update appointments with this appointments
+            appointments, // update appointments with this appointments
+
           }
 
           setState(updateSpots(updatedState));
@@ -79,6 +80,7 @@ export default function useApplicationData() {
           const updatedState = {
             ...state,
             appointments
+
           }
 
           setState(updateSpots(updatedState));
@@ -98,6 +100,7 @@ export default function useApplicationData() {
           setState(prev => ({...prev, days: allRes[0].data, appointments: allRes[1].data, interviewers: allRes[2].data}))
 
           // console.log('this is the interviwers data', allRes[2].data)
+
     })
 }, [])
 
