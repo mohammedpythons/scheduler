@@ -14,7 +14,8 @@ A scheduler that the user can create, edit, and delete interview appointments.
 ![Screen Shot 2021-08-11 at 7 44 04 PM](https://user-images.githubusercontent.com/69409540/129117648-0f1dc38d-9dcb-4301-bb2a-8efe4f29f3d4.png)
 
 
-
+## To use this application please checkout its API
+https://github.com/FrancisBourgouin/scheduler-api
 
 
 ##Technologies and Tools
